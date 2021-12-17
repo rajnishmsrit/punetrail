@@ -6,9 +6,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        typeName: 'RMAPI',
-        fieldName: 'rickAndMorty',
-        url: 'https://rickandmortyapi.com/graphql',
+        url: 'https://countries.trevorblades.com',
       },
     },
   ],
