@@ -4,32 +4,30 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 
 // This query is executed at run time by Apollo.
-const LIST_COUNTRIES = gql`
+const LIST_BOOKS = gql`
   {
-    countries {
-      name
-      code
+    books {
+      title
+      author
     }
   }
 `;
 
 // create a component that renders a select input for coutries
 function Index() {
-  const [country, setCountry] = useState('US');
-  const {data, loading, error} = useQuery(LIST_COUNTRIES);
+  const {data, loading, error} = useQuery(LIST_BOOKS);
 
   if (loading || error) {
     return <p>{error ? error.message : 'Loading...'}</p>;
   }
 
   return (
-    <select value={country} onChange={event => setCountry(event.target.value)}>
-      {data.countries.map(country => (
-        <option key={country.code} value={country.code}>
-          {country.name}
-        </option>
+    <p>
+      {data.books.map(book => (
+        <p><b>{book.title}</b> : {book.author}
+        </p>
       ))}
-    </select>
+    </p>
   );
 }
 

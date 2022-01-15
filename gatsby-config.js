@@ -6,7 +6,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        url: 'https://countries.trevorblades.com',
+        url: 'http://localhost:4000',
       },
     },
   ],
